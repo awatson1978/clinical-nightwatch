@@ -4,7 +4,7 @@ selenium-nightwatch
 Dead-easy acceptance testing for your Meteor app with Selenium and Nightwatch.
 
 
-####  Requirements  
+####  Requirements
 
   - Meteor
   - Firefox
@@ -13,18 +13,14 @@ Dead-easy acceptance testing for your Meteor app with Selenium and Nightwatch.
 This package is 11mb large, because of the Selenium browser automation server, and will increase the overall size of your application by 11mb!  The good news, however, is that this extra weight won't be shipped down to the client, and is simply bloats the bundle file and adds an unnecessary file to the server.  We're working on providing this in a way that reduces that overhead as well.
 
 
-####  Installation  
+####  Installation
 Install Nightwatch and Selenium through Atmosphere or with the Git Clone command.
 
 ````sh
 # Go to the root of your application
 terminal-a$  cd myappdir
+terminal-a$  meteor add clinical:nightwatch
 
-# Option A:  Install via Atmosphere
-terminal-a$  mrt add selenium-nightwatch
-
-# Option B:  Install with Git Clone
-terminal-a$  git clone https://github.com/awatson1978/leaderboard-nightwatch.git /private
 ````
 
 ####  Run Your App For the First Time
@@ -36,7 +32,7 @@ Nightwatch works a lot like when you run the ``meteor mongo`` command.  That is,
 terminal-a$ cd myappdir
 
 # run the leaderboard application
-terminal-a$ sudo mrt
+terminal-a$ meteor
 ````
 
 #### Write Your First Acceptance Test
@@ -74,27 +70,18 @@ module.exports = {
 
 ````
 
-####  Running the Tests  
-You'll need to run Nightwatch for the first time with an actual test.  In this example, we'll be attaching to your app, but running a test against Google.  
-````sh
-# and then, in the same way that we run 'meteor mongo' in a separate terminal
-# while our application is already running,
-# we want to open up a new terminal, and run nightwatch
-terminal-b$ cd packages/selenium-nightwatch
-terminal-b$ sudo ./launch_nightwatch_from_package.sh
-````
 
 ####  Running Tests from App Root
 ````sh
-# and then, in the same way that we run 'meteor mongo' in a separate terminal
-# while our application is already running,
+# In the same way that we run 'meteor mongo' in a separate terminal while our application is already running,
 # we want to open up a new terminal, and run nightwatch
-terminal-b$ ln -s packages/selenium-nightwatch/launch_nightwatch_from_app_root.sh run_nightwatch.sh
+terminal-b$ ln -s .meteor/local/build/programs/server/assets/packages/awatson1978_selenium-nightwatch/launch_nightwatch_from_app_root.sh run_nightwatch.sh
 terminal-b$ sudo ./run_nightwatch.sh
 
 # you might want to do something clever like pass in arguments and run specific tests
 terminal-b$ sudo ./run_nightwatch.sh -t tests/leaderboard.js
 ````
+
 
 
 ####  Writing More Complicated Acceptance Tests
@@ -161,9 +148,9 @@ You may notice that your database has gotten out of sync with your tests.  Don't
 ````
 # if you want to rerun the acceptance tests, go back to the first terminal
 # and be sure to reset the database
-terminal-a$ ctrl-a
-terminal-a$ sudo mrt reset
-terminal-a$ sudo mrt
+terminal-a$ ctrl-c
+terminal-a$ meteor reset
+terminal-a$ meteor
 ````
 
 ####  Configuring a Shared Testing Database
