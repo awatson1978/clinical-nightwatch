@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Dead-easy acceptance testing for your Meteor app with Selenium and Nightwatch.",
-  version: "1.0.6",
+  version: "1.1.0",
   git: "https://github.com/awatson1978/selenium-nightwatch"
 });
 
