@@ -92,10 +92,10 @@
                });
              });
 
-             if (index === xmlFiles.length - 1) {
-               Meteor.call('resetReports', {framework: selectedFramework, notIn: newResults});
+             //if (index === xmlFiles.length - 1) {
+               //Meteor.call('resetReports', {framework: selectedFramework, notIn: newResults});
                Meteor.call('completed', {framework: selectedFramework});
-             }
+             //}
            });
          //});
       }
