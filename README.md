@@ -1,4 +1,4 @@
-selenium-nightwatch
+clinical:nightwatch
 ===================
 
 Ultra-easy acceptance testing for your Meteor app with Selenium and Nightwatch.
