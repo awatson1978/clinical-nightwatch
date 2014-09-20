@@ -1,14 +1,14 @@
 {
-  "src_folders" : ["../../tests"],
-  "output_folder" : "nightwatch-output",
+  "src_folders" : ["tests"],
+  "output_folder" : "tests/.reports",
   "custom_commands_path" : "",
   "custom_assertions_path" : "",
-  "globals_path" : "globals.json",
+  "globals_path" : ".meteor/local/build/programs/server/assets/packages/clinical_nightwatch/globals.json",
 
   "selenium" : {
     "start_process" : true,
-    "server_path" : "selenium/selenium-server-standalone-2.42.0.jar",
-    "log_path" : "nightwatch-logs",
+    "server_path" : ".meteor/local/build/programs/server/assets/packages/clinical_nightwatch/selenium/selenium-server-standalone-2.42.0.jar",
+    "log_path" : "logs",
     "host" : "127.0.0.1",
     "port" : 4444,
     "cli_args": {

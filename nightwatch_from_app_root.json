@@ -3,11 +3,11 @@
   "output_folder" : "tests/.reports",
   "custom_commands_path" : "",
   "custom_assertions_path" : "",
-  "globals_path" : ".meteor/local/build/programs/server/assets/packages/awatson1978_selenium-nightwatch/globals.json",
+  "globals_path" : ".meteor/local/build/programs/server/assets/packages/clinical_nightwatch/globals.json",
 
   "selenium" : {
     "start_process" : true,
-    "server_path" : ".meteor/local/build/programs/server/assets/packages/awatson1978_selenium-nightwatch/selenium/selenium-server-standalone-2.42.0.jar",
+    "server_path" : ".meteor/local/build/programs/server/assets/packages/clinical_nightwatch/selenium/selenium-server-standalone-2.42.0.jar",
     "log_path" : "logs",
     "host" : "127.0.0.1",
     "port" : 4444,
@@ -18,7 +18,7 @@
 
   "test_settings" : {
     "default" : {
-      "launch_url" : "http://localhost",
+      "launch_url" : "http://localhost:3000",
       "selenium_host" : "127.0.0.1",
       "selenium_port" : 4444,
       "pathname": "/wd/hub",
