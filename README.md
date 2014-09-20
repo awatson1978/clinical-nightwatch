@@ -1,7 +1,7 @@
 selenium-nightwatch
 ===================
 
-Dead-easy acceptance testing for your Meteor app with Selenium and Nightwatch.
+Ultra-easy acceptance testing for your Meteor app with Selenium and Nightwatch.
 
 
 ####  Requirements
