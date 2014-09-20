@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Ultra-easy acceptance testing with Selenium.",
-  version: "1.2.15",
+  version: "1.2.16",
   git: "https://github.com/awatson1978/clinical-nightwatch"
 });
 
