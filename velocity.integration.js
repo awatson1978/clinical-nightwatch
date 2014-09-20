@@ -38,11 +38,16 @@
   console.log("Starting Nightwatch...");
 
   console.log("Registering Nightwatch with Velocity...");
-  Velocity.registerTestingFramework("nightwatch", {regex: /nightwatch/});
-  //Velocity.parseXmlFiles("nightwatch");
+  if (Velocity && Velocity.registerTestingFramework){
+    Velocity.registerTestingFramework("nightwatch", {regex: /nightwatch/});
+    //Velocity.parseXmlFiles("nightwatch");
 
-  console.log("Parsing Nightwatch XML report files...");
-  parseXmlFiles("nightwatch");
+    //Meteor.call('registerTestFramework', "nightwatch");
+
+    console.log("Parsing Nightwatch XML report files...");
+    parseXmlFiles("nightwatch");
+
+  }
 
   //////////////////////////////////////////////////////////////////////
   // Methods
