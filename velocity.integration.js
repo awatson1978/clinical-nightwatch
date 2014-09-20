@@ -22,9 +22,6 @@
       rerunTests,
       RUN_TEST_THROTTLE_TIME = 100;
 
-  Velocity.registerTestingFramework("nightwatch", {regex: /nightwatch/});
-  //Meteor.call('parseXmlFiles', 'nightwatch');
-  parseXmlFiles("nightwatch");
 
   var SystemWrapper = {
     standardOut: function(error, stdout, stderr) {
@@ -47,7 +44,7 @@
 
   //if(Meteor.isServer){
     //Meteor.methods({
-      parseXmlFiles = function(selectedFramework){
+      function parseXmlFiles (selectedFramework){
          closeFunc = Meteor.bindEnvironment(function () {
            console.log('binding environment and parsing Nightwatch FIREFOX xml files...')
 
@@ -171,6 +168,8 @@
   //   });
   // });  // end closeFunc
 
-
+  Velocity.registerTestingFramework("nightwatch", {regex: /nightwatch/});
+  //Meteor.call('parseXmlFiles', 'nightwatch');
+  parseXmlFiles("nightwatch");
 
 })();
