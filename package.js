@@ -1,7 +1,7 @@
 Package.describe({
-  summary: "Dead-easy acceptance testing for your Meteor app with Selenium and Nightwatch.",
-  version: "1.1.0",
-  git: "https://github.com/awatson1978/selenium-nightwatch"
+  summary: "Ultra-easy acceptance testing for your Meteor app with Selenium and Nightwatch.",
+  version: "1.1.3",
+  git: "https://github.com/awatson1978/clinical-nightwatch"
 });
 
 Package.onUse(function(api) {
@@ -29,6 +29,5 @@ Package.onUse(function(api) {
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('awatson1978:selenium-nightwatch');
-  api.addFiles('awatson1978:selenium-nightwatch-tests.js');
+  api.addFiles('clinical:nightwatch-tests.js');
 });
