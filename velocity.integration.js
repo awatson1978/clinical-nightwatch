@@ -67,7 +67,7 @@
                      name: testcase.$.name,
                      framework: selectedFramework,
                      result: testcase.failure ? 'failed' : 'passed',
-                     timestamp: moment(),
+                     timestamp: new Date(),
                      time: moment().format("HH:MM:SS"),
                      ancestors: ["nightwatch"]
                    };
