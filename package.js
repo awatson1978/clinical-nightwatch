@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Ultra-easy acceptance testing for your Meteor app with Selenium and Nightwatch.",
-  version: "1.1.4",
+  version: "1.1.5",
   git: "https://github.com/awatson1978/clinical-nightwatch"
 });
 
@@ -17,6 +17,7 @@ Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.1.1');
 
   api.use(['underscore']);
+  api.use(['livedata']);
 
 
   api.addFiles('globals.json');
