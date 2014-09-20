@@ -1,6 +1,14 @@
 {
   "dependencies": [
     [
+      "application-configuration",
+      "1.0.1-glasser1"
+    ],
+    [
+      "binary-heap",
+      "1.0.0"
+    ],
+    [
       "callback-hook",
       "1.0.0"
     ],
@@ -17,8 +25,16 @@
       "1.0.0"
     ],
     [
+      "follower-livedata",
+      "1.0.0"
+    ],
+    [
       "geojson-utils",
       "1.0.0"
+    ],
+    [
+      "http",
+      "1.0.4"
     ],
     [
       "id-map",
@@ -45,6 +61,10 @@
       "1.0.2-glasser1"
     ],
     [
+      "mongo",
+      "1.0.4"
+    ],
+    [
       "ordered-dict",
       "1.0.0"
     ],
@@ -63,6 +83,10 @@
     [
       "underscore",
       "1.0.0"
+    ],
+    [
+      "velocity:core",
+      "0.2.0"
     ]
   ],
   "pluginDependencies": [],
