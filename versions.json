@@ -58,7 +58,7 @@
     ],
     [
       "minimongo",
-      "1.0.2-glasser1"
+      "1.0.2-rc0"
     ],
     [
       "mongo",
@@ -86,7 +86,7 @@
     ],
     [
       "velocity:core",
-      "0.2.0"
+      "0.2.6"
     ]
   ],
   "pluginDependencies": [],

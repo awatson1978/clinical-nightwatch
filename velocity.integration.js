@@ -67,14 +67,10 @@
                      name: testcase.$.name,
                      framework: selectedFramework,
                      result: testcase.failure ? 'failed' : 'passed',
-                     timestamp: testsuite.$.timestamp,
-                     time: testcase.$.time
+                     timestamp: moment(),
+                     time: moment().format("HH:MM:SS"),
+                     result.ancestors = ["nightwatch"];
                    };
-                   if(testcase.$.classname){
-                     result.ancestors = [testcase.$.classname];
-                   }else{
-                     result.ancestors = [""];
-                   }
 
                    if (testcase.failure) {
                      testcase.failure.forEach(function (failure) {
