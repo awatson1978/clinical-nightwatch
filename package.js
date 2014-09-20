@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Ultra-easy acceptance testing with Selenium.",
-  version: "1.2.8",
+  version: "1.2.15",
   git: "https://github.com/awatson1978/clinical-nightwatch"
 });
 
@@ -21,23 +21,22 @@ Package.onUse(function(api) {
   api.use(['velocity:core@0.2.0']);
 
 
-  api.addFiles('globals.json');
-  api.addFiles('launch_nightwatch_from_app_root.sh');
-  api.addFiles('launch_nightwatch_from_package.sh');
-  api.addFiles('methods.nightwatch.js');
-  api.addFiles('nightwatch_from_app_root.json');
-  api.addFiles('nightwatch_from_app_root_with_saucelabs.json');
-  api.addFiles('nightwatch_from_package.json');
+  api.addFiles('globals.json', ['server']);
+  api.addFiles('launch_nightwatch_from_app_root.sh', ['server']);
+  api.addFiles('launch_nightwatch_from_package.sh', ['server']);
+  api.addFiles('methods.nightwatch.js', ['server']);
+  api.addFiles('nightwatch_from_app_root.json', ['server']);
+  api.addFiles('nightwatch_from_app_root_with_saucelabs.json', ['server']);
+  api.addFiles('nightwatch_from_package.json', ['server']);
 
   api.addFiles('commands/seed.txt');
   api.addFiles('logs/seed.txt');
-  api.addFiles('tests-output/seed.txt');
-  api.addFiles('nightwatch-logs/seed.txt');
+  api.addFiles('nightwatch-logs/seed.txt', ['server']);
 
-  api.addFiles('selenium/chromedriver');
-  api.addFiles('selenium/selenium-server-standalone-2.42.0.jar');
+  api.addFiles('selenium/chromedriver', ['server']);
+  api.addFiles('selenium/selenium-server-standalone-2.42.0.jar', ['server']);
 
-  api.addFiles('velocity.integration.js');
+  api.addFiles('velocity.integration.js', ['server']);
 
 });
 

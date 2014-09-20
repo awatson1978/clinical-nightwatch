@@ -35,17 +35,20 @@
 
   //child_process.exec(nightwatchCli, SystemWrapper.standardOut);
 
-  console.log("Loading Nightwatch...");
+  console.log("Starting Nightwatch...");
 
+  console.log("Registering Nightwatch with Velocity...");
+  Velocity.registerTestingFramework("nightwatch", {regex: /nightwatch/});
+  //Velocity.parseXmlFiles("nightwatch");
 
+  console.log("Parsing Nightwatch XML report files...");
+  parseXmlFiles("nightwatch");
 
   //////////////////////////////////////////////////////////////////////
   // Methods
 
-  //if(Meteor.isServer){
-    //Meteor.methods({
       function parseXmlFiles (selectedFramework){
-         closeFunc = Meteor.bindEnvironment(function () {
+         //var closeFunc = Meteor.bindEnvironment(function () {
            console.log('binding environment and parsing Nightwatch FIREFOX xml files...')
 
            var newResults = [];
@@ -54,22 +57,27 @@
            var xmlFiles = glob.sync(globSearchString, { cwd: testReportsPath });
 
            console.log('globSearchString', globSearchString);
+           console.log('xmlFiles', xmlFiles);
 
            _.each(xmlFiles, function (xmlFile, index) {
              parseString(fs.readFileSync(testReportsPath + path.sep + xmlFile), function (err, result) {
                _.each(result.testsuites.testsuite, function (testsuite) {
                  _.each(testsuite.testcase, function (testcase) {
-                   var result = ({
+                   var result = {
                      name: testcase.$.name,
                      framework: selectedFramework,
                      result: testcase.failure ? 'failed' : 'passed',
                      timestamp: testsuite.$.timestamp,
-                     time: testcase.$.time,
-                     ancestors: [testcase.$.classname]
-                   });
+                     time: testcase.$.time
+                   };
+                   if(testcase.$.classname){
+                     result.ancestors = [testcase.$.classname];
+                   }else{
+                     result.ancestors = [""];
+                   }
 
                    if (testcase.failure) {
-                     _.each(testcase.failure, function (failure) {
+                     testcase.failure.forEach(function (failure) {
                        result.failureType = failure.$.type;
                        result.failureMessage = failure.$.message;
                        result.failureStackTrace = failure._;
@@ -88,10 +96,8 @@
                Meteor.call('completed', {framework: selectedFramework});
              }
            });
-         });
+         //});
       }
-    //});
-  //}
 
 
   //////////////////////////////////////////////////////////////////////
@@ -109,67 +115,5 @@
   }
 
 
-  // // possible memory leak
-  // var regurgitate = Meteor.bindEnvironment(function (data) {
-  //   consoleData += data;
-  //   if (consoleData.indexOf('\n') !== -1 && consoleData.trim()) {
-  //     console.log(consoleData.trim());
-  //     Meteor.call('postLog', {
-  //       type: 'out',
-  //       framework: 'nightwatch',
-  //       message: consoleData.trim()
-  //     });
-  //     consoleData = '';
-  //   }
-  // });
-
-  // closeFunc = Meteor.bindEnvironment(function () {
-  //   console.log('binding environment and parsing Nightwatch FIREFOX xml files...')
-  //
-  //   var newResults = [],
-  //       globSearchString = path.join('**', 'FIREFOX_*.xml'),
-  //       //globSearchString = parsePath('**/FIREFOX*.xml'),
-  //       xmlFiles = glob.sync(globSearchString, { cwd: testReportsPath });
-  //
-  //       console.log('globSearchString', globSearchString);
-  //
-  //   _.each(xmlFiles, function (xmlFile, index) {
-  //     parseString(fs.readFileSync(testReportsPath + path.sep + xmlFile), function (err, result) {
-  //       _.each(result.testsuites.testsuite, function (testsuite) {
-  //         _.each(testsuite.testcase, function (testcase) {
-  //           var result = ({
-  //             name: testcase.$.name,
-  //             framework: 'nightwatch',
-  //             result: testcase.failure ? 'failed' : 'passed',
-  //             timestamp: testsuite.$.timestamp,
-  //             time: testcase.$.time,
-  //             ancestors: [testcase.$.classname]
-  //           });
-  //
-  //           if (testcase.failure) {
-  //             _.each(testcase.failure, function (failure) {
-  //               result.failureType = failure.$.type;
-  //               result.failureMessage = failure.$.message;
-  //               result.failureStackTrace = failure._;
-  //             });
-  //           }
-  //           result.id = 'nightwatch:' + hashCode(xmlFile + testcase.$.classname + testcase.$.name);
-  //           newResults.push(result.id);
-  //           console.log('result', result);
-  //           Meteor.call('postResult', result);
-  //         });
-  //       });
-  //     });
-  //
-  //     if (index === xmlFiles.length - 1) {
-  //       Meteor.call('resetReports', {framework: 'nightwatch', notIn: newResults});
-  //       Meteor.call('completed', {framework: 'nightwatch'});
-  //     }
-  //   });
-  // });  // end closeFunc
-
-  Velocity.registerTestingFramework("nightwatch", {regex: /nightwatch/});
-  //Meteor.call('parseXmlFiles', 'nightwatch');
-  parseXmlFiles("nightwatch");
 
 })();
