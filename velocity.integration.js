@@ -69,7 +69,7 @@
                      result: testcase.failure ? 'failed' : 'passed',
                      timestamp: moment(),
                      time: moment().format("HH:MM:SS"),
-                     result.ancestors: ["nightwatch"]
+                     ancestors: ["nightwatch"]
                    };
 
                    if (testcase.failure) {
