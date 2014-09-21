@@ -61,8 +61,8 @@
            var globSearchString = path.join('**', 'FIREFOX_*.xml');
            var xmlFiles = glob.sync(globSearchString, { cwd: testReportsPath });
 
-           console.log('globSearchString', globSearchString);
-           console.log('xmlFiles', xmlFiles);
+           //console.log('globSearchString', globSearchString);
+           //console.log('xmlFiles', xmlFiles);
 
            _.each(xmlFiles, function (xmlFile, index) {
              parseString(fs.readFileSync(testReportsPath + path.sep + xmlFile), function (err, result) {
@@ -92,10 +92,10 @@
                });
              });
 
-             //if (index === xmlFiles.length - 1) {
-               //Meteor.call('resetReports', {framework: selectedFramework, notIn: newResults});
+             if (index === xmlFiles.length - 1) {
+               Meteor.call('resetReports', {framework: selectedFramework, notIn: newResults});
                Meteor.call('completed', {framework: selectedFramework});
-             //}
+             }
            });
          //});
       }

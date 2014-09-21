@@ -18,7 +18,7 @@ Package.onUse(function(api) {
 
   api.use(['underscore']);
   api.use(['livedata']);
-  api.use(['velocity:core']);
+  api.use(['velocity:core@0.2.11']);
 
 
   api.addFiles('globals.json', ['server']);
