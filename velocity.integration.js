@@ -37,8 +37,8 @@
 
   console.log("Starting Nightwatch...");
 
-  console.log("Registering Nightwatch with Velocity...");
   if (Velocity && Velocity.registerTestingFramework){
+    console.log("Registering Nightwatch with Velocity...");
     Velocity.registerTestingFramework("nightwatch", {regex: /nightwatch/});
     //Velocity.parseXmlFiles("nightwatch");
 

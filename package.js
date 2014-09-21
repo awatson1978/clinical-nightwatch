@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Ultra-easy acceptance testing with Selenium.",
-  version: "1.2.24",
+  version: "1.2.25",
   git: "https://github.com/awatson1978/clinical-nightwatch"
 });
 
@@ -14,7 +14,7 @@ Npm.depends({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('METEOR@0.9.1.1');
+  api.versionsFrom('METEOR@0.9.2.0');
 
   api.use(['underscore']);
   api.use(['livedata']);

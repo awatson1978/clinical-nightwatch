@@ -83,6 +83,10 @@
     [
       "underscore",
       "1.0.0"
+    ],
+    [
+      "velocity:core",
+      "0.2.11"
     ]
   ],
   "pluginDependencies": [],
