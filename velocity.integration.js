@@ -86,7 +86,7 @@
                    }
                    result.id = selectedFramework + ':' + hashCode(xmlFile + testcase.$.classname + testcase.$.name);
                    newResults.push(result.id);
-                   console.log('result', result);
+                   //console.log('result', result);
                    Meteor.call('postResult', result);
                  });
                });
