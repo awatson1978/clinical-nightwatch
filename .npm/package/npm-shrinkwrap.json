@@ -1,0 +1,48 @@
+{
+  "dependencies": {
+    "glob": {
+      "version": "3.2.9",
+      "dependencies": {
+        "minimatch": {
+          "version": "0.2.14",
+          "dependencies": {
+            "lru-cache": {
+              "version": "2.5.0"
+            },
+            "sigmund": {
+              "version": "1.0.0"
+            }
+          }
+        },
+        "inherits": {
+          "version": "2.0.1"
+        }
+      }
+    },
+    "lodash": {
+      "version": "2.4.1"
+    },
+    "meteor-stubs": {
+      "version": "0.0.2"
+    },
+    "rimraf": {
+      "version": "2.2.8"
+    },
+    "xml2js": {
+      "version": "0.4.2",
+      "dependencies": {
+        "sax": {
+          "version": "0.5.8"
+        },
+        "xmlbuilder": {
+          "version": "2.4.4",
+          "dependencies": {
+            "lodash-node": {
+              "version": "2.4.1"
+            }
+          }
+        }
+      }
+    }
+  }
+}

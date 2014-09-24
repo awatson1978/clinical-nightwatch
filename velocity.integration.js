@@ -3,51 +3,56 @@
   "use strict";
 
   var pwd = process.env.PWD,
-      DEBUG = process.env.NIGHTWATCH_DEBUG,
-      child_process = Npm.require('child_process'),
-      spawn = child_process.spawn,
+      //DEBUG = process.env.NIGHTWATCH_DEBUG,
+      //child_process = Npm.require('child_process'),
+      //spawn = child_process.spawn,
       parseString = Npm.require('xml2js').parseString,
       glob = Npm.require('glob'),
       fs = Npm.require('fs'),
       path = Npm.require('path'),
-      rimraf = Npm.require('rimraf'),
-      sys = Npm.require('sys'),
+      //rimraf = Npm.require('rimraf'),
+      //sys = Npm.require('sys'),
       //testReportsPath = path.join(pwd, 'tests', '.reports', 'jasmine-unit'),
       //testReportsPath = path.join(pwd, 'tests', '.reports', 'nightwatch-acceptance'),
-      testReportsPath = parsePath(pwd + '/tests/.reports/nightwatch-acceptance'),
-      args = [],
-      consoleData = '',
-      nightwatchCli,
-      closeFunc,
-      rerunTests,
-      RUN_TEST_THROTTLE_TIME = 100;
+      testReportsPath = parsePath(pwd + '/tests/.reports/nightwatch-acceptance');
+      //args = [],
+      //consoleData = '',
+      //nightwatchCli,
+      //closeFunc,
+      //rerunTests,
+      //RUN_TEST_THROTTLE_TIME = 100;
 
 
-  var SystemWrapper = {
-    standardOut: function(error, stdout, stderr) {
-      var sys = Npm.require('sys');
-      sys.puts(stdout);
+  // var SystemWrapper = {
+  //   standardOut: function(error, stdout, stderr) {
+  //     var sys = Npm.require('sys');
+  //     sys.puts(stdout);
+  //   }
+  // };
+
+  Meteor.startup(function(){
+
+
+
+    //nightwatchCli = parsePath(pwd + '/packages/selenium-nightwatch/launch_nightwatch_from_velocity.sh');
+
+    //child_process.exec(nightwatchCli, SystemWrapper.standardOut);
+
+    console.log("Starting Nightwatch...");
+
+    if (Velocity && Velocity.registerTestingFramework){
+      console.log("Registering Nightwatch with Velocity...");
+      Velocity.registerTestingFramework("nightwatch", {regex: /nightwatch/});
+      //Velocity.parseXmlFiles("nightwatch");
+
+      //Meteor.call('registerTestFramework', "nightwatch");
+
+      console.log("Parsing Nightwatch XML report files...");
+      parseXmlFiles("nightwatch");
+      console.log("Well, now what?");
+
     }
-  };
-
-
-  //nightwatchCli = parsePath(pwd + '/packages/selenium-nightwatch/launch_nightwatch_from_velocity.sh');
-
-  //child_process.exec(nightwatchCli, SystemWrapper.standardOut);
-
-  console.log("Starting Nightwatch...");
-
-  if (Velocity && Velocity.registerTestingFramework){
-    console.log("Registering Nightwatch with Velocity...");
-    Velocity.registerTestingFramework("nightwatch", {regex: /nightwatch/});
-    //Velocity.parseXmlFiles("nightwatch");
-
-    //Meteor.call('registerTestFramework', "nightwatch");
-
-    console.log("Parsing Nightwatch XML report files...");
-    parseXmlFiles("nightwatch");
-
-  }
+  });
 
   //////////////////////////////////////////////////////////////////////
   // Methods
@@ -62,7 +67,7 @@
            var xmlFiles = glob.sync(globSearchString, { cwd: testReportsPath });
 
            //console.log('globSearchString', globSearchString);
-           //console.log('xmlFiles', xmlFiles);
+           console.log('xmlFiles.length', xmlFiles.length);
 
            _.each(xmlFiles, function (xmlFile, index) {
              parseString(fs.readFileSync(testReportsPath + path.sep + xmlFile), function (err, result) {
@@ -74,7 +79,7 @@
                      result: testcase.failure ? 'failed' : 'passed',
                      timestamp: new Date(),
                      time: moment().format("HH:MM:SS"),
-                     ancestors: ["nightwatch"]
+                     ancestors: []
                    };
 
                    if (testcase.failure) {
@@ -84,20 +89,22 @@
                        result.failureStackTrace = failure._;
                      });
                    }
-                   result.id = selectedFramework + ':' + hashCode(xmlFile + testcase.$.classname + testcase.$.name);
+                   result.id = selectedFramework + ':' + hashCode(xmlFile + testcase.$.name);
                    newResults.push(result.id);
-                   //console.log('result', result);
+                   console.log('posting result...', result.name);
                    Meteor.call('postResult', result);
                  });
                });
              });
 
-             if (index === xmlFiles.length - 1) {
+             console.log('index', index);
+             if (index === (xmlFiles.length - 1)) {
                Meteor.call('resetReports', {framework: selectedFramework, notIn: newResults});
                Meteor.call('completed', {framework: selectedFramework});
              }
            });
          //});
+         console.log("Snap.  Think we're done.");
       }
 
 

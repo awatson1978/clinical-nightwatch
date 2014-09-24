@@ -2,7 +2,11 @@
   "dependencies": [
     [
       "application-configuration",
-      "1.0.1-glasser1"
+      "1.0.2"
+    ],
+    [
+      "base64",
+      "1.0.0"
     ],
     [
       "binary-heap",
@@ -18,15 +22,15 @@
     ],
     [
       "ddp",
-      "1.0.1-ekate"
+      "1.0.8"
     ],
     [
       "ejson",
-      "1.0.0"
+      "1.0.2"
     ],
     [
       "follower-livedata",
-      "1.0.0"
+      "1.0.1"
     ],
     [
       "geojson-utils",
@@ -34,7 +38,7 @@
     ],
     [
       "http",
-      "1.0.4"
+      "1.0.5"
     ],
     [
       "id-map",
@@ -50,19 +54,19 @@
     ],
     [
       "logging",
-      "1.0.0"
-    ],
-    [
-      "meteor",
       "1.0.3"
     ],
     [
+      "meteor",
+      "1.1.0"
+    ],
+    [
       "minimongo",
-      "1.0.2-rc0"
+      "1.0.3"
     ],
     [
       "mongo",
-      "1.0.4"
+      "1.0.5"
     ],
     [
       "ordered-dict",
@@ -78,15 +82,19 @@
     ],
     [
       "tracker",
-      "1.0.2-rc0"
+      "1.0.2"
     ],
     [
       "underscore",
       "1.0.0"
     ],
     [
+      "url",
+      "1.0.0"
+    ],
+    [
       "velocity:core",
-      "0.2.11"
+      "0.3.0"
     ]
   ],
   "pluginDependencies": [],
