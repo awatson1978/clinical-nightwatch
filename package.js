@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Ultra-easy acceptance testing with Selenium.",
-  version: "1.3.3",
+  version: "1.3.4",
   name: "clinical:nightwatch",
   git: "https://github.com/awatson1978/clinical-nightwatch"
 });
@@ -14,10 +14,12 @@ Package.onUse(function(api) {
   api.addFiles('globals.json', ['server']);
   api.addFiles('launch_nightwatch_from_app_root.sh', ['server']);
   api.addFiles('launch_nightwatch_from_package.sh', ['server']);
+  api.addFiles('launch_nightwatch_from_velocity.sh', ['server']);
 
   api.addFiles('nightwatch_from_app_root.json', ['server']);
   api.addFiles('nightwatch_from_app_root_with_saucelabs.json', ['server']);
   api.addFiles('nightwatch_from_package.json', ['server']);
+  api.addFiles('nightwatch_from_velocity.json', ['server']);
 
   api.addFiles('commands/seed.txt');
   api.addFiles('logs/seed.txt');
