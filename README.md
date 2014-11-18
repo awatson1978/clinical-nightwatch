@@ -80,7 +80,7 @@ terminal-b$ sudo chmod +x run_nightwatch.sh
 terminal-b$ sudo ./run_nightwatch.sh
 
 # you might want to do something clever like pass in arguments and run specific tests
-terminal-b$ sudo ./run_nightwatch.sh -t tests/leaderboard.js
+terminal-b$ sudo ./run_nightwatch.sh -t tests/nightwatch/leaderboard.js
 ````
 
 
