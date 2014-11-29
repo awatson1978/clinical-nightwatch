@@ -85,7 +85,7 @@ terminal-b$ sudo ./run_nightwatch.sh -t tests/nightwatch/leaderboard.js
 
 If the above gives you any trouble, it may be because the ``meteor`` command is downloading the ``clinical:nightwatch`` package each time the app is run, which resets the symlink.  A new behavior from previous versions of meteor.  Try copying the following into ``run_nightwatch.sh``.  
 
-````
+````sh
 # run_nightwatch.sh
 #echo "changing file permissions"
 chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/launch_nightwatch*.sh
