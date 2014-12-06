@@ -7,8 +7,8 @@ Ultra-easy acceptance testing for your Meteor app with Selenium and Nightwatch.
 ####  Requirements
 
   - Meteor
-  - Firefox
-  - [Java for OSX](http://support.apple.com/kb/DL1572)
+  - [Firefox](https://support.mozilla.org/en-US/kb/how-download-and-install-firefox-mac)  
+  - [Java for OSX](http://support.apple.com/kb/DL1572)  
 
 ####  Size Warning!
 This package is 11mb large, because of the Selenium browser automation server, and will increase the overall size of your application by 11mb!  The good news, however, is that this extra weight won't be shipped down to the client, and is simply bloats the bundle file and adds an unnecessary file to the server.  We're working on providing this in a way that reduces that overhead as well.
