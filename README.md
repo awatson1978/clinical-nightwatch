@@ -72,6 +72,8 @@ module.exports = {
 ````
 
 
+
+
 ####  Running Tests from App Root
 ````sh
 # In the same way that we run 'meteor mongo' in a separate terminal while our application is already running,
@@ -114,47 +116,47 @@ module.exports = {
       .waitForElementVisible('div#outer', 1000)
       .waitForElementVisible('div.leaderboard', 1000)
       .waitForElementVisible('.leaderboard .player', 1000)
-  
+
       .verify.containsText('div.leaderboard div:nth-child(1) .name', 'Ada Lovelace')
       .verify.containsText('div.leaderboard div:nth-child(1) .score', '50')
-  
+
       .verify.containsText('div.leaderboard div:nth-child(2) .name', 'Grace Hopper')
       .verify.containsText('div.leaderboard div:nth-child(2) .score', '40')
-  
+
       .verify.containsText('div.leaderboard div:nth-child(3) .name', 'Claude Shannon')
       .verify.containsText('div.leaderboard div:nth-child(3) .score', '35')
-  
+
       .verify.containsText('div.leaderboard div:nth-child(4) .name', 'Nikola Tesla')
       .verify.containsText('div.leaderboard div:nth-child(4) .score', '25')
-  
+
       .verify.containsText('div.leaderboard div:nth-child(5) .name', 'Marie Curie')
       .verify.containsText('div.leaderboard div:nth-child(5) .score', '20')
-  
+
       .verify.containsText('div.leaderboard div:nth-child(6) .name', 'Carl Friedrich Gauss')
       .verify.containsText('div.leaderboard div:nth-child(6) .score', '5')
-  
-  
+
+
       .verify.containsText('.none', 'Click a player to select')
       .click('div.leaderboard div:nth-child(2)')
       .pause(500)
       .waitForElementVisible('input.inc', 1000)
       .verify.attributeEquals('input.inc', 'value', 'Give 5 points')
-  
+
       .click('input.inc')
       .verify.containsText('div.leaderboard div:nth-child(2) .name', 'Grace Hopper')
       .verify.containsText('div.leaderboard div:nth-child(2) .score', '45')
-  
+
       .click('input.inc')
       .verify.containsText('div.leaderboard div:nth-child(2) .name', 'Grace Hopper')
       .verify.containsText('div.leaderboard div:nth-child(2) .score', '50')
-  
+
       .click('input.inc')
       .verify.containsText('div.leaderboard div:nth-child(1) .name', 'Grace Hopper')
       .verify.containsText('div.leaderboard div:nth-child(1) .score', '55')
-  
+
       .verify.containsText('div.leaderboard div:nth-child(2) .name', 'Ada Lovelace')
       .verify.containsText('div.leaderboard div:nth-child(2) .score', '50')
-  
+
       .end();
   }
 }
@@ -177,6 +179,16 @@ With bigger test suites, you'll maybe want to set up an entire test database, in
 ````
 # launch your application against a test database
 terminal-a$ MONGO_URL=mongodb://127.0.0.1:27017 PORT=3000 node .meteor/local/build/main.js
+````
+
+####  Custom Commands, Assertions, and Logs
+
+There are a few hidden directories to be aware of, which are mapped to core Nightwatch .json configuration file parameters.  Refer to the Nightwatch documentation for more details; but suffice it to say that you write commands, assertions, and logs by accessing the hidden files in ``/tests/nightwatch``.  
+
+````sh
+/tests/nightwatch/.commands
+/tests/nightwatch/.assertions
+/tests/nightwatch/.logs
 ````
 
 
