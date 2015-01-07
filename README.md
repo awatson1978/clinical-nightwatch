@@ -7,7 +7,7 @@ Ultra-easy acceptance testing for your Meteor app with Selenium and Nightwatch.
 ####  Requirements
 
   - Meteor
-  - [Firefox](https://support.mozilla.org/en-US/kb/how-download-and-install-firefox-mac)  
+  - [Firefox 31](https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/31.0/) (Firefox 33+ won't work)  
   - [Java for OSX](http://support.apple.com/kb/DL1572)  
 
 ####  Size Warning!
