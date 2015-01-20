@@ -196,7 +196,7 @@ Travis Continuous Integration
 
 New!  Alan Blount has figured out how to run Nightwatch with Travis CI!  Exciting!  We're still documenting and cleaning things up, but you can take a look at the proof of concept here:  
 
-https://github.com/zeroasterisk/meteor-travis-ci-nightwatch/tree/master/app
+https://github.com/zeroasterisk/meteor-travis-ci-nightwatch
 
 
 Licensing
