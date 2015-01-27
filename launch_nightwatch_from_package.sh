@@ -3,7 +3,7 @@
 #so it can only be used to run complete suites
 #if you want to run a single test file, run from app-root
 
-echo "installing nightwatch in .meteor/local/build"
+echo "installing nightwatch 0.5.3 in .meteor/local/build"
   cd ../../../../..
   sudo npm install nightwatch@0.5.3
 
