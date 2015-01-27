@@ -226,9 +226,9 @@ before_install:
   # install meteor
   - "curl https://install.meteor.com | /bin/sh"
   # setup Meteor app
-  - "cd webapp"
-    # Optionally we can update all our dependencies here
-    #- "meteor update"
+  # - "cd webapp"
+  # Optionally we can update all our dependencies here
+  #- "meteor update"
   - "meteor reset"
   - "meteor -p 3000 &"
   # give Meteor some time to download packages, init data, and to start
