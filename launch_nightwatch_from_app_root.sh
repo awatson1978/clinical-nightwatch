@@ -3,7 +3,7 @@
 #
 # echo "changing file permissions"
 # chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/launch_nightwatch*.sh
-# chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/selenium/selenium-server-standalone-2.42.0.jar
+# chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/selenium/selenium-server-standalone-2.44.0.jar
 #
 # echo "installing nightwatch in .meteor/local/build"
 #   cd .meteor/local/build
@@ -33,7 +33,7 @@ echo "Setting variables..."
 #set -e
 
 # defaults
-CONFIG=".meteor/local/build/programs/server/assets/packages/clinical_nightwatch/nightwatch_from_app_root.json"
+CONFIG="packages/clinical_nightwatch/nightwatch_from_app_root.json"
 ENVIRONMENT="default"
 _TESTS=""
 _GROUP=""
@@ -137,9 +137,9 @@ done
 
 echo "Changing file permissions..."
 # Setup: changing file permissions"
-mkdir -p .meteor/local/build/programs/server/assets/packages/clinical_nightwatch
-chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/launch_nightwatch*.sh
-chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/selenium/selenium-server-standalone-2.42.0.jar
+#mkdir -p .meteor/local/build/programs/server/assets/packages/clinical_nightwatch
+#chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/launch_nightwatch*.sh
+#chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/selenium/selenium-server-standalone-2.44.0.jar
 mkdir -p tests/logs
 chmod 0777 tests/logs
 

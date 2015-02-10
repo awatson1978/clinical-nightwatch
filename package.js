@@ -25,6 +25,7 @@ Package.onUse(function(api) {
 
   api.addFiles('selenium/chromedriver', ['server']);
   api.addFiles('selenium/selenium-server-standalone-2.42.0.jar', ['server']);
+  api.addFiles('selenium/selenium-server-standalone-2.44.0.jar', ['server']);
 
 });
 
