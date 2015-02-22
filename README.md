@@ -6,11 +6,17 @@ Ultra-easy acceptance testing for your Meteor app with [Selenium](http://www.sel
 ![Prezi](https://raw.githubusercontent.com/awatson1978/clinical-nightwatch/master/nightwatch.prezi.png)
 [View the Prezi on Nightwatch Architecture for Meteor Applications](http://prezi.com/muvofev3r0n0/?utm_campaign=share&utm_medium=copy&rc=ex0share)  
 
-####  Requirements
+####  Table of Contents
 
+- Requirements
   - [Meteor](https://www.meteor.com/install)  
   - [Firefox](https://www.mozilla.org/en-US/firefox/new/)  
   - [Java for OSX](http://support.apple.com/kb/DL1572)  
+-  [Continous Integration with Travis CI](https://github.com/awatson1978/clinical-nightwatch/blob/master/docs/continuous-integration.md)  
+-  [Velocity Examples](https://github.com/meteor-velocity/velocity-examples)  
+
+
+
 
 ####  Size Warning!
 This package is 11mb large, because of the Selenium browser automation server, and will increase the overall size of your application by 11mb!  The good news, however, is that this extra weight won't be shipped down to the client, and is simply bloats the bundle file and adds an unnecessary file to the server.  We're working on providing this in a way that reduces that overhead as well.
@@ -193,54 +199,7 @@ There are a few hidden directories to be aware of, which are mapped to core Nigh
 /tests/nightwatch/.logs
 ````
 
-Travis Continuous Integration  
-------------------------
 
-Need to run your Nightwatch tests whenever you check in a branch to GitHub or generate a pull-request?  Just add the following script to a ``.travis.yml`` file in the root of your project directory.
-
-````sh
-# this travis.yml file is for the leaderboard-nightwatch example, when run standalone
-language: node_js
-
-node_js:
-  - "0.10"
-
-services:
-  - mongodb
-
-cache:
-  directories:
-    - .meteor/local/build/programs/server/assets/packages
-    - .meteor
-#    - node_modules
-#    - webapp/node_modules
-
-before_install:
-  # set up the node_modules dir, so we know where it is
-  - "mkdir -p node_modules &"
-  # install nightwatch, so we know where it is
-  - "npm install nightwatch"
-  # fire up xvfb on port :99.0
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  # set the xvfb screen size to 1280x1024x16
-  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
-  # install meteor
-  - "curl https://install.meteor.com | /bin/sh"
-  # setup Meteor app
-  # - "cd webapp"
-  # Optionally we can update all our dependencies here
-  #- "meteor update"
-  - "meteor reset"
-  - "meteor -p 3000 &"
-  # give Meteor some time to download packages, init data, and to start
-  - "sleep 50"
-
-script: ./run_nightwatch.sh
-````
-
-[meteor-travis-ci-nightwatch](https://github.com/zeroasterisk/meteor-travis-ci-nightwatch)  
-[velocity-examples](https://github.com/meteor-velocity/velocity-examples)  
 
 
 Licensing
