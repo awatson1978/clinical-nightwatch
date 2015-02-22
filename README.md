@@ -77,16 +77,16 @@ module.exports = {
 
 
 
-####  Running Tests from App Root
+####  Running Tests from Command Line
 ````sh
 # In the same way that we run 'meteor mongo' in a separate terminal while our application is already running,
 # we want to open up a new terminal, and run nightwatch
-terminal-b$ ln -s .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/launch_nightwatch_from_app_root.sh run_nightwatch.sh
-terminal-b$ sudo chmod 777 run_nightwatch.sh
-terminal-b$ sudo ./run_nightwatch.sh
+terminal-b$ chmod -R 777 .meteor
+terminal-b$ chmod 777 run_nightwatch.sh
+terminal-b$ ./run_nightwatch.sh
 
 # you might want to do something clever like pass in arguments and run specific tests
-terminal-b$ sudo ./run_nightwatch.sh -t tests/nightwatch/leaderboard.js
+terminal-b$ ./run_nightwatch.sh -t tests/nightwatch/leaderboard.js
 ````
 
 If the above gives you any trouble, it may be because the ``meteor`` command is downloading the ``clinical:nightwatch`` package each time the app is run, which resets the symlink.  A new behavior from previous versions of meteor.  Try copying the following into ``run_nightwatch.sh``.  
