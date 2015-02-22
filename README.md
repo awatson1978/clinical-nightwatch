@@ -8,8 +8,8 @@ Ultra-easy acceptance testing for your Meteor app with [Selenium](http://www.sel
 
 ####  Requirements
 
-  - Meteor
-  - [Firefox 31](https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/31.0/) (Firefox 33+ won't work)  
+  - [Meteor](https://www.meteor.com/install)  
+  - [Firefox](https://www.mozilla.org/en-US/firefox/new/)  
   - [Java for OSX](http://support.apple.com/kb/DL1572)  
 
 ####  Size Warning!
