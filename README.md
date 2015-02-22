@@ -13,8 +13,8 @@ Ultra-easy acceptance testing for your Meteor app with [Selenium](http://www.sel
   - [Firefox](https://www.mozilla.org/en-US/firefox/new/)  
   - [Java for OSX](http://support.apple.com/kb/DL1572)  
 -  [Continous Integration with Travis CI](https://github.com/awatson1978/clinical-nightwatch/blob/master/docs/continuous-integration.md)  
--  [Velocity Examples](https://github.com/meteor-velocity/velocity-examples)  
-
+- [Velocity Examples](https://github.com/meteor-velocity/velocity-examples)  
+- [Sample run_nightwatch.sh script](https://github.com/awatson1978/clinical-nightwatch/blob/master/run_nightwatch.sample.sh)  
 
 
 
