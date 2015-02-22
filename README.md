@@ -7,7 +7,7 @@ Ultra-easy acceptance testing for your Meteor app with [Selenium](http://www.sel
 [View the Prezi on Nightwatch Architecture for Meteor Applications](http://prezi.com/muvofev3r0n0/?utm_campaign=share&utm_medium=copy&rc=ex0share)  
 
 ####  Size Warning!
-This package is 11mb large, because of the Selenium browser automation server, and will increase the overall size of your application by 11mb!  The good news, however, is that this extra weight won't be shipped down to the client, and is simply bloats the bundle file and adds an unnecessary file to the server.  
+This package is 11mb large, because of the Selenium browser automation server, and will increase the overall size of your application by 11mb!   The good news, however, is that this extra weight won't be shipped down to the client, and is simply bloats the bundle file and adds an unnecessary file to the server.  
 
 ####  Table of Contents
 
