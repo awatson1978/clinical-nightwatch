@@ -77,7 +77,10 @@ module.exports = {
 
 
 
-####  Running Tests from Command Line
+####  Running Tests from Command Line  
+
+Running Nightwatch from the command line currently requires that you copy the [run_nightwatch.sh script](https://github.com/awatson1978/clinical-nightwatch/blob/master/run_nightwatch.sample.sh) into your application root.  Once you do that, make sure your permissions are set correctly.
+
 ````sh
 # In the same way that we run 'meteor mongo' in a separate terminal while our application is already running,
 # we want to open up a new terminal, and run nightwatch
@@ -87,23 +90,6 @@ terminal-b$ ./run_nightwatch.sh
 
 # you might want to do something clever like pass in arguments and run specific tests
 terminal-b$ ./run_nightwatch.sh -t tests/nightwatch/leaderboard.js
-````
-
-If the above gives you any trouble, it may be because the ``meteor`` command is downloading the ``clinical:nightwatch`` package each time the app is run, which resets the symlink.  A new behavior from previous versions of meteor.  Try copying the following into ``run_nightwatch.sh``.  
-
-````sh
-# run_nightwatch.sh
-#echo "changing file permissions"
-chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/launch_nightwatch*.sh
-chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/selenium/selenium-server-standalone-2.44.0.jar
-
-#echo "installing nightwatch in .meteor/local/build"
-  cd .meteor/local/build
-  sudo npm install nightwatch@0.5.3
-  cd ../../..
-
-#echo "running nightwatch"
-   sudo .meteor/local/build/node_modules/nightwatch/bin/nightwatch -c .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/nightwatch_from_app_root.json $1 $2
 ````
 
 
