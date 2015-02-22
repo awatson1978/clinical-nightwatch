@@ -62,3 +62,7 @@ before_install:
 
 script: ./run_nightwatch.sh
 ````
+
+#### Contributors  
+Big thanks to Alan Blount for his help in figuring this integration out!  
+[meteor-travis-ci-nightwatch](https://github.com/zeroasterisk/meteor-travis-ci-nightwatch)
