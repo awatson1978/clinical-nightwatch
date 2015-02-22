@@ -110,7 +110,7 @@ chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch
 #### Resetting the Database For New Runs
 You may notice that your database has gotten out of sync with your tests.  Don't worry, as that's normal.  The easy thing to do is just reset your database.  But you'll eventually need to write your tests so they don't destructively modify your database, or you'll need to create tearUp and tearDown methods, or set up a testing database, or any number of other activities to manage your test data.
 
-````
+````sh
 # if you want to rerun the acceptance tests, go back to the first terminal
 # and be sure to reset the database
 terminal-a$ ctrl-c
@@ -121,7 +121,7 @@ terminal-a$ meteor
 ####  Configuring a Shared Testing Database
 With bigger test suites, you'll maybe want to set up an entire test database, in which case you'll want to attach your Nightwatch instance against a test database.  That's probably getting past the extent of this README, but here's a quick reference to how to do that...
 
-````
+````sh
 # launch your application against a test database
 terminal-a$ MONGO_URL=mongodb://127.0.0.1:27017 PORT=3000 node .meteor/local/build/main.js
 ````
