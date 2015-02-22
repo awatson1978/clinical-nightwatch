@@ -9,7 +9,7 @@ Ultra-easy acceptance testing for your Meteor app with Selenium and Nightwatch.
 ####  Requirements
 
   - Meteor
-  - [Firefox 31](https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/31.0/) (Firefox 33+ won't work)  
+  - [Firefox 31](https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/31.0/) (Firefox 33+ won't work)  NOTE: recent update to selenium-server-standalone-2.42.0.jar may work with Firefox 33+
   - [Java for OSX](http://support.apple.com/kb/DL1572)  
 
 ####  Size Warning!
@@ -94,7 +94,7 @@ If the above gives you any trouble, it may be because the ``meteor`` command is 
 # run_nightwatch.sh
 #echo "changing file permissions"
 chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/launch_nightwatch*.sh
-chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/selenium/selenium-server-standalone-2.42.0.jar
+chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/selenium/selenium-server-standalone-2.44.0.jar
 
 #echo "installing nightwatch in .meteor/local/build"
   cd .meteor/local/build
