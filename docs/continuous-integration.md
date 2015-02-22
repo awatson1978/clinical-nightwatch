@@ -1,7 +1,26 @@
 ### Travis Continuous Integration  
 
+Need to run your Nightwatch tests whenever you check in a branch to GitHub or generate a pull-request?  You need a Continous Integration server, such as Travis CI (which supports Git hooks).  
 
-Need to run your Nightwatch tests whenever you check in a branch to GitHub or generate a pull-request?  Just add the following script to a ``.travis.yml`` file in the root of your project directory.
+And if you're getting to the point where you need a continous-integration server, your project is probably getting big enough that you're doing things creating design docs, defining business requirements, injecting specific data into the database, and the like.  We're going to share a script for deploying to Travis below; but it relies on a particular directory structure of your repository.  In particular, it expects your application to be in the ``webapp`` subdirectory of your repository, and sort of assumes that you're keeping design docs, deploy scripts, database dumps, and the like in your repository also.  
+
+
+````sh
+.git
+README.md
+/data
+/docs
+/design
+/scripts
+/webapp
+/webapp/.meteor
+/webapp/run_nightwatch.sh
+/webapp/client
+/webapp/server
+.travis.yml
+````
+
+So, if you haven't structured your application like this yet, go ahead and move your application into a ``webapp`` directory. After that, just add the following script to a ``.travis.yml`` file in the root of your project directory.
 
 ````sh
 # this travis.yml file is for the leaderboard-nightwatch example, when run standalone
@@ -33,7 +52,7 @@ before_install:
   # install meteor
   - "curl https://install.meteor.com | /bin/sh"
   # setup Meteor app
-  # - "cd webapp"
+  - "cd webapp"
   # Optionally we can update all our dependencies here
   #- "meteor update"
   - "meteor reset"
