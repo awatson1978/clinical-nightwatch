@@ -23,21 +23,15 @@ Ultra-easy acceptance testing for your Meteor app with [Selenium](http://www.sel
 This package is 11mb large, because of the Selenium browser automation server, and will increase the overall size of your application by 11mb!  The good news, however, is that this extra weight won't be shipped down to the client, and is simply bloats the bundle file and adds an unnecessary file to the server.  We're working on providing this in a way that reduces that overhead as well.
 
 
-####  Installation
-Install Nightwatch and Selenium through Atmosphere or with the Git Clone command.
-
-````sh
-# Go to the root of your application
-terminal-a$  cd myappdir
-terminal-a$  meteor add clinical:nightwatch
-
-````
-
-####  Run Your App For the First Time
+####  Quickstart
 
 Nightwatch works a lot like when you run the ``meteor mongo`` command.  That is, you need to have an instance of meteor running for it work.  More specifically, Nightwatch will attach itself to the compiled version of your app in the ``.meteor/local/build`` directory, and spin up a mirror copy of your app to test with.  Your other app doesn't actually have to be running, but it does need to be run at least once before.
 
 ````sh
+# go to the root of your application
+terminal-a$  cd myappdir
+terminal-a$  meteor add clinical:nightwatch
+
 # Go to the root of your application
 terminal-a$ cd myappdir
 
