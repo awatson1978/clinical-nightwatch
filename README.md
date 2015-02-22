@@ -1,7 +1,7 @@
 clinical:nightwatch
 ===================
 
-Ultra-easy acceptance testing for your Meteor app with Selenium and Nightwatch.
+Ultra-easy acceptance testing for your Meteor app with [Selenium](http://www.seleniumhq.org/) and [Nightwatch](http://nightwatchjs.org/).
 
 ![Prezi](https://raw.githubusercontent.com/awatson1978/clinical-nightwatch/master/nightwatch.prezi.png)
 [View the Prezi on Nightwatch/Selenium Architecture](http://prezi.com/muvofev3r0n0/?utm_campaign=share&utm_medium=copy&rc=ex0share)  
