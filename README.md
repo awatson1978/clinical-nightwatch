@@ -194,9 +194,51 @@ There are a few hidden directories to be aware of, which are mapped to core Nigh
 Travis Continuous Integration  
 ------------------------
 
-New!  Alan Blount has figured out how to run Nightwatch with Travis CI!  Exciting!  We're still documenting and cleaning things up, but you can take a look at the proof of concept here:  
+Need to run your Nightwatch tests whenever you check in a branch to GitHub or generate a pull-request?  Just add the following script to a ``.travis.yml`` file in the root of your project directory.
 
-https://github.com/zeroasterisk/meteor-travis-ci-nightwatch
+````sh
+# this travis.yml file is for the leaderboard-nightwatch example, when run standalone
+language: node_js
+
+node_js:
+  - "0.10"
+
+services:
+  - mongodb
+
+cache:
+  directories:
+    - .meteor/local/build/programs/server/assets/packages
+    - .meteor
+#    - node_modules
+#    - webapp/node_modules
+
+before_install:
+  # set up the node_modules dir, so we know where it is
+  - "mkdir -p node_modules &"
+  # install nightwatch, so we know where it is
+  - "npm install nightwatch"
+  # fire up xvfb on port :99.0
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  # set the xvfb screen size to 1280x1024x16
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
+  # install meteor
+  - "curl https://install.meteor.com | /bin/sh"
+  # setup Meteor app
+  # - "cd webapp"
+  # Optionally we can update all our dependencies here
+  #- "meteor update"
+  - "meteor reset"
+  - "meteor -p 3000 &"
+  # give Meteor some time to download packages, init data, and to start
+  - "sleep 50"
+
+script: ./run_nightwatch.sh
+````
+
+[meteor-travis-ci-nightwatch](https://github.com/zeroasterisk/meteor-travis-ci-nightwatch)  
+[velocity-examples](https://github.com/meteor-velocity/velocity-examples)  
 
 
 Licensing
