@@ -94,7 +94,7 @@ If the above gives you any trouble, it may be because the ``meteor`` command is 
 # run_nightwatch.sh
 #echo "changing file permissions"
 chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/launch_nightwatch*.sh
-chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/selenium/selenium-server-standalone-2.42.0.jar
+chmod +x .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/selenium/selenium-server-standalone-2.44.0.jar
 
 #echo "installing nightwatch in .meteor/local/build"
   cd .meteor/local/build
