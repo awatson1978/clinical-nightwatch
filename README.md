@@ -8,7 +8,7 @@ Ultra-easy acceptance testing for your Meteor app with [Selenium](http://www.sel
 
 ####  Table of Contents
 
-- Requirements
+- Installation
   - [Meteor](https://www.meteor.com/install)  
   - [Firefox](https://www.mozilla.org/en-US/firefox/new/)  
   - [Java for OSX](http://support.apple.com/kb/DL1572)  
