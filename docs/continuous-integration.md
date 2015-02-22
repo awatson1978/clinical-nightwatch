@@ -1,5 +1,5 @@
 #### Travis Continuous Integration  
-------------------------
+
 
 Need to run your Nightwatch tests whenever you check in a branch to GitHub or generate a pull-request?  Just add the following script to a ``.travis.yml`` file in the root of your project directory.
 
