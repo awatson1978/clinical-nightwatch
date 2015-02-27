@@ -123,6 +123,14 @@ There are a few hidden directories to be aware of, which are mapped to core Nigh
 /tests/nightwatch/.logs
 ````
 
+####  Advanced Topics  
+[Custom Commands](https://groups.google.com/forum/#!searchin/nightwatchjs/client$20execute/nightwatchjs/RC1S2OXILDU/noB39V1oNwMJ)  
+[Using Globals.js to Define Test Data](https://groups.google.com/forum/#!searchin/nightwatchjs/upload$20file/nightwatchjs/rYG1Oj-N2II/HP7G8OqQ7ssJ)  
+[File Upload Dialog](https://groups.google.com/forum/#!searchin/nightwatchjs/upload$20file/nightwatchjs/tVjjCW5A16o/gz9JYs6RCxoJ)  
+[Download File Assertion](https://groups.google.com/forum/#!searchin/nightwatchjs/upload$20file/nightwatchjs/XiP2oTlqtRA/1EqHTH7EXzIJ)  
+[Testing Minimongo and Browser Console with execute()](https://groups.google.com/forum/#!searchin/nightwatchjs/run$20command$20line/nightwatchjs/SCwoiVOniWw/wObZ_DcLOUoJ)  
+[Code Injection using execute()](https://groups.google.com/forum/#!searchin/nightwatchjs/execute/nightwatchjs/ZdXtwMgliss/O14Duu_cZ7sJ)  
+[Connecting to SauceLabs](https://groups.google.com/forum/#!searchin/nightwatchjs/saucelabs/nightwatchjs/EcOkqn9pa8w/slXqfnePTwoJ) 
 
 
 
