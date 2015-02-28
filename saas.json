@@ -16,27 +16,6 @@
     }
   },
 
-  "test_settings" : {
-    "default" : {
-      "launch_url" : "http://localhost:3000",
-      "selenium_host" : "127.0.0.1",
-      "selenium_port" : 4444,
-      "pathname": "/wd/hub",
-      "silent" : true,
-      "disable_colors": false,
-      "firefox_profile" : false,
-      "ie_driver" : "",
-      "screenshots" : {
-        "enabled" : false,
-        "path" : ""
-      },
-      "desiredCapabilities" : {
-        "browserName" : "firefox",
-        "javascriptEnabled" : true,
-        "acceptSslCerts" : true
-      }
-    },
-
     "saucelabs" : {
       "selenium_host" : "ondemand.saucelabs.com",
       "selenium_port" : 80,

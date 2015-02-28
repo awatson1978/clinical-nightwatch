@@ -15,16 +15,35 @@ This package is 11mb large, because of the Selenium browser automation server, a
   - [Meteor](https://www.meteor.com/install)  
   - [Firefox](https://www.mozilla.org/en-US/firefox/new/)  
   - [Java for OSX](http://support.apple.com/kb/DL1572)  
-- [Writing Acceptance Tests With Nightwatch](https://github.com/awatson1978/meteor-cookbook/blob/master/cookbook/writing.acceptance.test.md)  
--  [Continous Integration with Travis CI](https://github.com/awatson1978/clinical-nightwatch/blob/master/docs/continuous-integration.md)  
+- [Quckstart](https://github.com/awatson1978/clinical-nightwatch#quickstart)
+- Acceptance Tests
+  - [Writing Your First Acceptance Test](https://github.com/awatson1978/clinical-nightwatch#write-your-first-acceptance-test)  
+  - [Writing Acceptance Tests With Nightwatch](https://github.com/awatson1978/meteor-cookbook/blob/master/cookbook/writing.acceptance.test.md)  
+- Databases
+  - [Resetting the Database](https://github.com/awatson1978/clinical-nightwatch#resetting-the-database-for-new-runs)  
+  - [Configuring a Shared Testing Database](https://github.com/awatson1978/clinical-nightwatch#configuring-a-shared-testing-database)  
+- [Continous Integration with Travis CI](https://github.com/awatson1978/clinical-nightwatch/blob/master/docs/continuous-integration.md)  
 - [Leaderboard Example Using Velocity & Nightwatch-Framework](https://github.com/meteor-velocity/velocity-examples/tree/master/leaderboard-nightwatch)  
 
 
 
 
-
-
 ####  Quickstart
+
+**Step 1 - Configure the Filesystem**  
+Begin by creating the following files in your /tests directory.  For now, the contents of ``global.json`` can be an empty json object `{}`.  
+
+````sh
+/tests/nightwatch/globals.json
+/tests/nightwatch/logs
+/tests/nightwatch/commands
+/tests/nightwatch/assertions
+/tests/nightwatch/walkthroughs
+
+terminal-a$ chmod -R 777 tests/nightwatch
+````
+
+**Step 2 - Add Nightwatch To Your Application**  
 
 Nightwatch works a lot like when you run the ``meteor mongo`` command.  That is, you need to have an instance of meteor running for it work.  More specifically, Nightwatch will attach itself to the compiled version of your app in the ``.meteor/local/build`` directory, and spin up a mirror copy of your app to test with.  Your other app doesn't actually have to be running, but it does need to be run at least once before.
 
@@ -39,6 +58,26 @@ terminal-a$ cd myappdir
 # run the leaderboard application
 terminal-a$ meteor
 ````
+
+**Step 3 - Set up the Launch Script and Run Nightwatch**  
+
+Copy the [run_nightwatch.sh script](https://github.com/awatson1978/clinical-nightwatch/blob/master/run_nightwatch.sample.sh) into your application root.  Once you do that, make sure your permissions are set correctly.
+
+````sh
+# In the same way that we run 'meteor mongo' in a separate terminal while our application is already running,
+# we want to open up a new terminal, and run nightwatch
+terminal-b$ chmod -R 777 .meteor
+terminal-b$ chmod 777 run_nightwatch.sh
+terminal-b$ ./run_nightwatch.sh
+
+# you might want to do something clever like pass in arguments and run specific tests
+terminal-b$ ./run_nightwatch.sh -t tests/nightwatch/leaderboard.js
+
+# of run only the tests that have been tagged with a specific label
+terminal-b$ ./run_nightwatch.sh --tag foo
+````
+
+
 
 #### Write Your First Acceptance Test
 Check out this super simple syntax for writing acceptance tests.  All you need to do is copy the following code into a file in the ``/tests`` directory, and Nightwatch will parse it accordingly.
@@ -58,7 +97,8 @@ module.exports = {
 
 // tests/google.js
 module.exports = {
-  "Demo test Google" : function (client) {
+  tags: ["foo"],
+  "Demo Test Google" : function (client) {
     client
       .url("http://www.google.com")
       .waitForElementVisible("body", 1000)
@@ -76,22 +116,6 @@ module.exports = {
 ````
 
 
-
-
-####  Running Tests from Command Line  
-
-Running Nightwatch from the command line currently requires that you copy the [run_nightwatch.sh script](https://github.com/awatson1978/clinical-nightwatch/blob/master/run_nightwatch.sample.sh) into your application root.  Once you do that, make sure your permissions are set correctly.
-
-````sh
-# In the same way that we run 'meteor mongo' in a separate terminal while our application is already running,
-# we want to open up a new terminal, and run nightwatch
-terminal-b$ chmod -R 777 .meteor
-terminal-b$ chmod 777 run_nightwatch.sh
-terminal-b$ ./run_nightwatch.sh
-
-# you might want to do something clever like pass in arguments and run specific tests
-terminal-b$ ./run_nightwatch.sh -t tests/nightwatch/leaderboard.js
-````
 
 
 #### Resetting the Database For New Runs
@@ -113,24 +137,15 @@ With bigger test suites, you'll maybe want to set up an entire test database, in
 terminal-a$ MONGO_URL=mongodb://127.0.0.1:27017 PORT=3000 node .meteor/local/build/main.js
 ````
 
-####  Custom Commands, Assertions, and Logs
 
-There are a few hidden directories to be aware of, which are mapped to core Nightwatch .json configuration file parameters.  Refer to the Nightwatch documentation for more details; but suffice it to say that you write commands, assertions, and logs by accessing the hidden files in ``/tests/nightwatch``.  
-
-````sh
-/tests/nightwatch/.commands
-/tests/nightwatch/.assertions
-/tests/nightwatch/.logs
-````
-
-####  Advanced Topics  
+####  Advanced Topics - Custom Commands, Assertions, and Logs
 [Custom Commands](https://groups.google.com/forum/#!searchin/nightwatchjs/client$20execute/nightwatchjs/RC1S2OXILDU/noB39V1oNwMJ)  
 [Using Globals.js to Define Test Data](https://groups.google.com/forum/#!searchin/nightwatchjs/upload$20file/nightwatchjs/rYG1Oj-N2II/HP7G8OqQ7ssJ)  
 [File Upload Dialog](https://groups.google.com/forum/#!searchin/nightwatchjs/upload$20file/nightwatchjs/tVjjCW5A16o/gz9JYs6RCxoJ)  
 [Download File Assertion](https://groups.google.com/forum/#!searchin/nightwatchjs/upload$20file/nightwatchjs/XiP2oTlqtRA/1EqHTH7EXzIJ)  
 [Testing Minimongo and Browser Console with execute()](https://groups.google.com/forum/#!searchin/nightwatchjs/run$20command$20line/nightwatchjs/SCwoiVOniWw/wObZ_DcLOUoJ)  
 [Code Injection using execute()](https://groups.google.com/forum/#!searchin/nightwatchjs/execute/nightwatchjs/ZdXtwMgliss/O14Duu_cZ7sJ)  
-[Connecting to SauceLabs](https://groups.google.com/forum/#!searchin/nightwatchjs/saucelabs/nightwatchjs/EcOkqn9pa8w/slXqfnePTwoJ) 
+[Connecting to SauceLabs](https://groups.google.com/forum/#!searchin/nightwatchjs/saucelabs/nightwatchjs/EcOkqn9pa8w/slXqfnePTwoJ)
 
 
 
