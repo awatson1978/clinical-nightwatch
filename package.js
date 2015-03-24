@@ -19,6 +19,7 @@ Package.onUse(function(api) {
 
   api.addFiles('nightwatch_from_app_root.json', ['server']);
   api.addFiles('nightwatch_from_velocity.json', ['server']);
+  api.addFiles('nightwatch_from_velocity_console.json', ['server']);
 
   api.addFiles('selenium/chromedriver', ['server']);
   api.addFiles('selenium/selenium-server-standalone-2.44.0.jar', ['server']);
