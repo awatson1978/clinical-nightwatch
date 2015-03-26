@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Ultra-easy acceptance testing with Selenium.",
-  version: "2.0.0",
+  version: "2.0.1",
   name: "clinical:nightwatch",
   git: "https://github.com/awatson1978/clinical-nightwatch",
   debugOnly: true
@@ -19,6 +19,7 @@ Package.onUse(function(api) {
 
   api.addFiles('nightwatch_from_app_root.json', ['server']);
   api.addFiles('nightwatch_from_velocity.json', ['server']);
+  api.addFiles('nightwatch_from_velocity_console.json', ['server']);
 
   api.addFiles('selenium/chromedriver', ['server']);
   api.addFiles('selenium/selenium-server-standalone-2.44.0.jar', ['server']);
