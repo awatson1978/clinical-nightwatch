@@ -1,6 +1,10 @@
 clinical:nightwatch
 ===================
 
+**NOTICE:  This package is being deprecated in favor of the StarryNight utility, which resolves most all of the configuration and launching issues that this package had.**    
+[starrynight.meteor.com](http://starrynight.meteor.com)
+
+===================
 Ultra-easy acceptance testing for your Meteor app with [Selenium](http://www.seleniumhq.org/) and [Nightwatch](http://nightwatchjs.org/).
 
 ![Prezi](https://raw.githubusercontent.com/awatson1978/clinical-nightwatch/master/nightwatch.prezi.png)
